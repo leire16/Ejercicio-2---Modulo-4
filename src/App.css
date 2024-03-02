@@ -1,4 +1,3 @@
-/* App.css */
 body {
   font-family: 'Arial', sans-serif;
   background-color: #f9f9f9;
@@ -36,6 +35,7 @@ button {
   color: black;
   padding: 0.6rem !important;
   box-sizing: border-box; /* Incluye el padding en el ancho total */
+  border: 1px solid !important;
 }
 
 button:hover {
