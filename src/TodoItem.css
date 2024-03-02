@@ -1,0 +1,70 @@
+.todo-item {
+    position: relative;
+    border: 1px solid #ddd;
+    padding: 6px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .completed1{
+    background-color: #f2f2f2; 
+  }
+  .completed2{
+    text-decoration: line-through;
+    background-color: #f2f2f2; 
+    color: red !important; 
+  }
+  
+  .todo-text {
+    flex-grow: 1;
+    margin-right: 8px;
+    color: black;
+  }
+
+  .delete-btn {
+    cursor: pointer;
+    padding: 4px;
+    font-weight: bold;
+    color: red;
+  }
+  
+  .dropdown-btn {
+    cursor: pointer;
+    padding: 8px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #555;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    display: none;
+  }
+  
+  .todo-item:hover .dropdown-menu {
+    display: block;
+  }
+  
+  .dropdown-item {
+    padding: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  /* Styling for a better appearance */
+  .dropdown-btn:hover {
+    background-color: #f4f4f4;
+  }
+  
+  /* Add a transition for smoother appearance */
+  .dropdown-menu {
+    transition: display 0.2s ease;
+  }
+  
