@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
-import './TodoItem.css';
+import { useState } from "react";
+import PropTypes from "prop-types";
+import "./TodoItem.css";
 
 const TodoItem = ({ todo, onEdit, onDelete, onToggleComplete }) => {
+  const [menuVisible, setMenuVisible] = useState(false);
   const [isEditing, setEditing] = useState(false);
   const [editedText, setEditedText] = useState(todo.text);
 
@@ -9,8 +11,6 @@ const TodoItem = ({ todo, onEdit, onDelete, onToggleComplete }) => {
     onEdit(todo.id, editedText);
     setEditing(false);
   };
-
-  const [menuVisible, setMenuVisible] = useState(false);
 
   const toggleMenu = (e) => {
     e.stopPropagation();
@@ -22,8 +22,8 @@ const TodoItem = ({ todo, onEdit, onDelete, onToggleComplete }) => {
   };
 
   return (
-    <div className={`todo-item ${todo.completed ? 'completed1' : ''}`}>
-      <span className={`todo-text ${todo.completed ? 'completed2' : ''}`}>
+    <div className={`todo-item ${todo.completed ? "completed1" : ""}`}>
+      <span className={`todo-text ${todo.completed ? "completed2" : ""}`}>
         {isEditing ? (
           <div>
             <input
@@ -54,13 +54,27 @@ const TodoItem = ({ todo, onEdit, onDelete, onToggleComplete }) => {
           <div className="dropdown-item" onClick={() => onDelete(todo.id)}>
             Eliminar
           </div>
-          <div className="dropdown-item" onClick={() => onToggleComplete(todo.id)}>
+          <div
+            className="dropdown-item"
+            onClick={() => onToggleComplete(todo.id)}
+          >
             Completo
           </div>
         </div>
       )}
     </div>
   );
+};
+
+TodoItem.PropTypes = {
+  todo: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    text: PropTypes.string.isRequired,
+    completed: PropTypes.bool.isRequired,
+  }).isRequired,
+  onEdit: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  onToggleComplete: PropTypes.func.isRequired,
 };
 
 export default TodoItem;
